@@ -1,5 +1,7 @@
 ## Technical Test Task For Unbiased
 
+[Demo page](https://shaburovpv.github.io/Unbiased-Test-Task)
+
 To complete task, in addition to Vue framework, to reduce time for development, application uses following packages:
 
 * **bootstrap** – Minimal set of styles for prototyping a form. Scss version is used and only necessary modules are connected to reduce the bundle size.
