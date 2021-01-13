@@ -53,7 +53,13 @@
         />
         <FormControlError
           :formField="$v.form.date"
-          :errorMessage="!$v.form.date.isDateValid ? 'Date is not valid' : ''"
+          :errorMessage="
+            !$v.form.date.isDateValid
+              ? 'Date is not valid'
+              : !$v.form.flightNumber.isDateFromFuture
+              ? 'Date cannot be less than today'
+              : ''
+          "
         />
       </div>
       <div class="form-row">
@@ -121,7 +127,12 @@
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import FormControlError from './FormControlError'
-import parseMin from 'libphonenumber-js/min'
+import {
+  isValidPhone,
+  isDateValid,
+  isFlightNumberValid,
+  isDateFromFuture,
+} from '@/utils/validators'
 import { mask } from 'vue-the-mask'
 
 const LOCAL_STORAGE_KEY = 'hireTaxiForm'
@@ -181,31 +192,17 @@ export default {
       name: { required },
       phone: {
         required,
-        isValidPhone(value) {
-          const parsedNumber = parseMin(value)
-          return !!(parsedNumber && parsedNumber.isValid())
-        },
+        isValidPhone,
       },
       date: {
         required,
-        isDateValid(date) {
-          if (date.length !== 10) {
-            return false
-          }
-          const datePickRegexp = new RegExp(/(\d{2})\/(\d{2})\/(\d{4})/)
-          // swap dd and mm for Date.parse format
-          const normalizedDate = date.replace(datePickRegexp, '$2/$1/$3')
-          const isValidDate = Date.parse(normalizedDate)
-          return !isNaN(isValidDate)
-        },
+        isDateValid,
+        isDateFromFuture,
       },
       airport: { required },
       flightNumber: {
         required,
-        isFlightNumberValid(number) {
-          const formatRegexp = new RegExp(/^[A-Z\d]{2}[A-Z]?\d{1,4}[A-Z]?$/)
-          return formatRegexp.test(number)
-        },
+        isFlightNumberValid,
       },
     },
   },
