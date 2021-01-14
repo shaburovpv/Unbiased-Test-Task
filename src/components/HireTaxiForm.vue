@@ -11,6 +11,8 @@
           :class="{ 'is-invalid': $v.form.name.$error }"
           id="name"
           v-model.trim="form.name"
+          @input="$v.form.name.$touch()"
+          :disabled="loading"
         />
         <FormControlError :formField="$v.form.name" />
       </div>
@@ -24,6 +26,8 @@
           v-model="form.phone"
           v-mask="'+44###########'"
           placeholder="+44XXXXXXXXXXX"
+          @input="$v.form.phone.$touch()"
+          :disabled="loading"
         />
         <FormControlError
           :formField="$v.form.phone"
@@ -31,11 +35,7 @@
             !$v.form.phone.isValidPhone ? 'Phone number is not valid' : ''
           "
         />
-        <small
-          id="emailHelp"
-          class="form-text text-muted"
-          v-if="!$v.form.phone.$error"
-        >
+        <small id="emailHelp" class="form-text text-muted">
           Use phone number in international UK format. e.g. +4402012341234
         </small>
       </div>
@@ -50,6 +50,8 @@
           v-model="form.date"
           v-mask="'##/##/####'"
           placeholder="dd/mm/yyyy"
+          @input="$v.form.date.$touch()"
+          :disabled="loading"
         />
         <FormControlError
           :formField="$v.form.date"
@@ -70,6 +72,8 @@
             :class="{ 'is-invalid': $v.form.airport.$error }"
             id="airport"
             v-model="form.airport"
+            @change="$v.form.airport.$touch()"
+            :disabled="loading"
           >
             <option></option>
             <option
@@ -84,7 +88,13 @@
         </div>
         <div class="form-group col-md-6" v-if="form.airport === 'heathrow'">
           <label class="control-label" for="terminal">Terminal</label>
-          <select class="form-control" id="terminal" v-model="form.terminal">
+          <select
+            class="form-control"
+            id="terminal"
+            v-model="form.terminal"
+            @change="$v.form.terminal.$touch()"
+            :disabled="loading"
+          >
             <option
               :value="terminal.value"
               v-for="terminal in terminalOptions"
@@ -105,6 +115,8 @@
           :class="{ 'is-invalid': $v.form.flightNumber.$error }"
           id="flight-number"
           v-model.trim="form.flightNumber"
+          @input="$v.form.flightNumber.$touch()"
+          :disabled="loading"
         />
         <FormControlError
           :formField="$v.form.flightNumber"
@@ -150,7 +162,7 @@ export default {
         phone: '',
         date: '',
         airport: '',
-        terminal: '',
+        terminal: '1',
         flightNumber: '',
       },
       airportOptions: [

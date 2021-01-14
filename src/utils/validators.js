@@ -9,8 +9,7 @@ const normalizeDate = function(date) {
   const datePickRegexp = new RegExp(/(\d{2})\/(\d{2})\/(\d{4})/)
   // swap dd and mm for Date.parse format
   const normalizedDate = date.replace(datePickRegexp, '$2/$1/$3')
-  const validDate = Date.parse(normalizedDate)
-  return validDate
+  return Date.parse(normalizedDate)
 }
 
 const isDateValid = function(date) {
@@ -23,7 +22,9 @@ const isDateValid = function(date) {
 
 const isDateFromFuture = function(date) {
   const validDate = normalizeDate(date)
-  return isDateValid(date) && validDate > Date.now()
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  return isDateValid(date) && validDate >= today
 }
 
 const isFlightNumberValid = function(number) {

@@ -16,3 +16,6 @@ In the future, it would be possible to add error handling of messages from serve
 It possible to connect the YUP library to implement schema-based validation also.
 There is possibility to use AplloClient library to work with GraphQL queries more conveniently.
 You can also connect the some UI library to improve modals and use datepicker for Date field.
+
+For flight number validation used information from article https://en.wikipedia.org/wiki/Airline_codes#IATA_airline_designator
+> Therefore, the full format of a flight designator is **xx(a)n(n)(n)(n)(a)**.
