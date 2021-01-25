@@ -17,7 +17,17 @@ const isDateValid = function(date) {
     return false
   }
   const validDate = normalizeDate(date)
-  return !isNaN(validDate)
+  if (isNaN(validDate)) {
+    return false
+  }
+  const splitDate = date.split('/')
+  const dateObject = new Date(validDate)
+  return (
+    dateObject &&
+    dateObject.getDate() === Number(splitDate[0]) &&
+    dateObject.getMonth() + 1 === Number(splitDate[1]) &&
+    dateObject.getFullYear() === Number(splitDate[2])
+  )
 }
 
 const isDateFromFuture = function(date) {

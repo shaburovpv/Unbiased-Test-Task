@@ -3,130 +3,91 @@
     <h1 class="hire-taxi-head">Form To Hire A Taxi</h1>
 
     <form @submit.prevent="onSubmit">
-      <div class="form-group form-group-required">
-        <label class="control-label" for="name">Your full name</label>
-        <input
-          type="text"
-          class="form-control"
-          :class="{ 'is-invalid': $v.form.name.$error }"
-          id="name"
-          v-model.trim="form.name"
-          @input="$v.form.name.$touch()"
-          :disabled="loading"
-        />
-        <FormControlError :formField="$v.form.name" />
-      </div>
-      <div class="form-group form-group-required">
-        <label class="control-label" for="phone">Your mobile phone</label>
-        <input
-          type="tel"
-          class="form-control"
-          :class="{ 'is-invalid': $v.form.phone.$error }"
-          id="phone"
-          v-model="form.phone"
-          v-mask="'+44###########'"
-          placeholder="+44XXXXXXXXXXX"
-          @input="$v.form.phone.$touch()"
-          :disabled="loading"
-        />
-        <FormControlError
-          :formField="$v.form.phone"
-          :errorMessage="
-            !$v.form.phone.isValidPhone ? 'Phone number is not valid' : ''
-          "
-        />
-        <small id="emailHelp" class="form-text text-muted">
-          Use phone number in international UK format. e.g. +4402012341234
-        </small>
-      </div>
-      <div class="form-group form-group-required">
-        <label class="control-label" for="date">Date of arrival</label>
-        <input
-          type="text"
-          class="form-control"
-          :class="{ 'is-invalid': $v.form.date.$error }"
-          id="date"
-          inputmode="numeric"
-          v-model="form.date"
-          v-mask="'##/##/####'"
-          placeholder="dd/mm/yyyy"
-          @input="$v.form.date.$touch()"
-          :disabled="loading"
-        />
-        <FormControlError
-          :formField="$v.form.date"
-          :errorMessage="
-            !$v.form.date.isDateValid
-              ? 'Date is not valid'
-              : !$v.form.flightNumber.isDateFromFuture
-              ? 'Date cannot be less than today'
-              : ''
-          "
-        />
-      </div>
+      <FormControlGroup
+        label="Your full name"
+        name="name"
+        v-model="form.name"
+        :required="true"
+        :formField="$v.form.name"
+        :disabled="loading"
+      />
+
+      <FormControlGroup
+        :as="TextMaskComponent"
+        :mask="'+4400000000000'"
+        :masked="true"
+        label="Your mobile phone"
+        name="phone"
+        type="tel"
+        placeholder="+44XXXXXXXXXXX"
+        v-model="form.phone"
+        :required="true"
+        :formField="$v.form.phone"
+        :errorMessage="
+          !$v.form.phone.isValidPhone ? 'Phone number is not valid' : ''
+        "
+        hint="Use phone number in international UK format. e.g. +4402012341234"
+        :disabled="loading"
+      />
+
+      <FormControlGroup
+        :as="TextMaskComponent"
+        :mask="'00/00/0000'"
+        label="Date of arrival"
+        name="date"
+        inputmode="numeric"
+        placeholder="dd/mm/yyyy"
+        v-model="form.date"
+        :required="true"
+        :formField="$v.form.date"
+        :errorMessage="
+          !$v.form.date.isDateValid
+            ? 'Date is not valid'
+            : !$v.form.flightNumber.isDateFromFuture
+            ? 'Date cannot be less than today'
+            : ''
+        "
+        :disabled="loading"
+      />
+
       <div class="form-row">
-        <div class="form-group form-group-required col-md-6">
-          <label class="control-label" for="airport">Airport</label>
-          <select
-            class="form-control"
-            :class="{ 'is-invalid': $v.form.airport.$error }"
-            id="airport"
-            v-model="form.airport"
-            @change="$v.form.airport.$touch()"
-            :disabled="loading"
-          >
-            <option></option>
-            <option
-              :value="option.value"
-              v-for="option in airportOptions"
-              :key="option.value"
-            >
-              {{ option.label }}
-            </option>
-          </select>
-          <FormControlError :formField="$v.form.airport" />
-        </div>
-        <div class="form-group col-md-6" v-if="form.airport === 'heathrow'">
-          <label class="control-label" for="terminal">Terminal</label>
-          <select
-            class="form-control"
-            id="terminal"
-            v-model="form.terminal"
-            @change="$v.form.terminal.$touch()"
-            :disabled="loading"
-          >
-            <option
-              :value="terminal.value"
-              v-for="terminal in terminalOptions"
-              :key="terminal.value"
-            >
-              {{ terminal.label }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group form-group-required">
-        <label class="control-label" for="flight-number">
-          Airflight number
-        </label>
-        <input
-          type="text"
-          class="form-control"
-          :class="{ 'is-invalid': $v.form.flightNumber.$error }"
-          id="flight-number"
-          v-model.trim="form.flightNumber"
-          @input="$v.form.flightNumber.$touch()"
+        <FormControlGroup
+          label="Airport"
+          name="airport"
+          v-model="form.airport"
+          :required="true"
+          :formField="$v.form.airport"
+          controlType="select"
+          :options="airportOptions"
           :disabled="loading"
+          class="col-md-6"
         />
-        <FormControlError
-          :formField="$v.form.flightNumber"
-          :errorMessage="
-            !$v.form.flightNumber.isFlightNumberValid
-              ? 'Flight number is not valid'
-              : ''
-          "
+        <FormControlGroup
+          v-if="form.airport === 'heathrow'"
+          label="Terminal"
+          name="terminal"
+          v-model="form.terminal"
+          controlType="select"
+          :options="terminalOptions"
+          :disabled="loading"
+          class="col-md-6"
         />
       </div>
+
+      <FormControlGroup
+        label="Airflight number"
+        name="flight-number"
+        v-model="form.flightNumber"
+        :required="true"
+        :formField="$v.form.flightNumber"
+        :errorMessage="
+          !$v.form.flightNumber.isFlightNumberValid
+            ? 'Flight number is not valid'
+            : ''
+        "
+        :disabled="loading"
+      />
+
       <button type="submit" class="btn btn-primary" :disabled="loading">
         <span v-if="!loading">Confirm booking</span>
         <span v-else>Loading...</span>
@@ -138,24 +99,24 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
-import FormControlError from './FormControlError'
+import FormControlGroup from './FormControlGroup'
 import {
   isValidPhone,
   isDateValid,
   isFlightNumberValid,
   isDateFromFuture,
 } from '@/utils/validators'
-import { mask } from 'vue-the-mask'
+import { IMaskComponent } from 'vue-imask'
 
 const LOCAL_STORAGE_KEY = 'hireTaxiForm'
 
 export default {
   name: 'HireTaxiForm',
   mixins: [validationMixin],
-  components: { FormControlError },
-  directives: { mask },
+  components: { FormControlGroup },
   data() {
     return {
+      TextMaskComponent: IMaskComponent,
       loading: false,
       form: {
         name: '',
@@ -166,6 +127,10 @@ export default {
         flightNumber: '',
       },
       airportOptions: [
+        {
+          value: '',
+          label: '',
+        },
         {
           value: 'heathrow',
           label: 'Heathrow',
