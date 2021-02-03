@@ -37,6 +37,7 @@
         name="date"
         inputmode="numeric"
         placeholder="dd/mm/yyyy"
+        foo="bar"
         v-model="form.date"
         :required="true"
         :formField="$v.form.date"
