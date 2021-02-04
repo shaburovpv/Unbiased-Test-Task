@@ -19,6 +19,7 @@
         label="Your mobile phone"
         name="phone"
         type="tel"
+        test
         placeholder="+44XXXXXXXXXXX"
         v-model="form.phone"
         :required="true"
