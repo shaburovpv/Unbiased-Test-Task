@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    1
     <MainPage />
   </div>
 </template>
