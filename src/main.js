@@ -6,8 +6,6 @@ import ApiPlugin from './plugins/api'
 
 Vue.use(ApiPlugin)
 
-console.log('test');
-
 new Vue({
   render: h => h(App),
 }).$mount('#app')
