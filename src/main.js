@@ -4,6 +4,8 @@ import './styles/main.scss'
 
 import ApiPlugin from './plugins/api'
 
+console.log('cherry');
+
 Vue.use(ApiPlugin)
 
 new Vue({
