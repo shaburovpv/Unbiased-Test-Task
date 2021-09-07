@@ -17,7 +17,7 @@
     "lerna": "^4.0.0",
     "libphonenumber-js": "^1.9.7",
     "vue": "^2.6.11",
-    "vue-imask": "^6.0.5",
+    "vue-imask": "^6.1.0",
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
