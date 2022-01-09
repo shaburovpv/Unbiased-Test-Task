@@ -1,0 +1,169 @@
+@import '../settings/*'
+@require '~vuetify/src/stylus/components/_buttons.styl'
+
+button($material)
+  &:not(.v-btn--icon):not(.v-btn--flat)
+    &.social.gg
+      background-color: #276efa
+      color: #fff
+      border: 1px solid #276efa
+
+    &.social.fb
+      background-color: #3b5d9c
+      color: #fff
+      border: 1px solid #3b5d9c
+
+  &:not(.v-btn--depressed):not(.v-btn--flat)
+    &.primary
+      box-shadow: 0 2px 3px 0 rgba(114, 26, 124, 0.24)
+
+      &:hover:not(:active),
+      &:focus:not(:active)
+        background: #9d148c !important
+
+      &:focus:after
+        border-color: rgba(132, 36, 120, 0.4)
+
+    &.warning
+      color: #323232;
+      box-shadow: 0 2px 3px 0 rgba(246, 188, 37, 0.24)
+
+      &:hover:not(:active),
+      &:focus:not(:active)
+        background: #ffca41 !important
+
+      &:focus:after
+        border-color: rgba(246, 188, 37, 0.4)
+
+theme(button, "v-btn")
+
+/** Base Spec */
+.v-btn
+  letter-spacing: normal
+.v-btn
+  &.social
+    .v-avatar
+      background: #fff
+      border-top-left-radius: inherit
+      border-bottom-left-radius: inherit
+
+/** Psuedo */
+.v-btn
+  &:before
+    background: transparent;
+    opacity: 0
+    pointer-events: none
+  &:after
+    @extend .v-btn:before
+    width: auto;
+    height: auto;
+    bottom: 0
+    right: 0
+    border-width: 2px
+    border-style: solid
+    border-color: transparent;
+    border-radius: 6px
+
+/** Content */
+.v-btn
+  &--active,
+  &:hover,
+  &:focus
+    &:before
+      background: transparent;
+/** Sizes */
+.v-btn
+  &--xsmall
+    font-size: $button-xsmall-font-size
+    height: $button-xsmall-height
+    padding: $button-small-padding
+
+    .v-icon
+      font-size: 20px
+  &--large
+    border-radius: $button-large-border-radius
+    font-family: 'Galano', sans-serif
+
+/** Types */
+.v-btn
+  &/*:not(.v-btn--depressed)*/:not(.v-btn--flat)
+    &:before
+      box-shadow: inset 0 4px 0 0 rgba(#000, .12)
+
+    &:focus:after
+      top: -4px
+      bottom: -4px
+      left: -4px
+      right: -4px
+      opacity: 1
+
+    &:focus:active,
+    &:active
+      box-shadow: none !important
+
+      &:before
+        opacity: 1
+
+      &:after
+        opacity: 0
+
+  &--icon
+    border-radius: $button-border-radius
+    width: $button-height
+
+    &.v-btn--xsmall
+      width: $button-xsmall-height
+
+    &:before
+      border-radius: $button-border-radius
+
+/** Icons */
+.v-btn
+  &:not(.v-btn--icon)
+    .v-btn__content .v-icon
+      font-size: 17px
+  &--small
+    .v-btn__content .v-icon
+      font-size: 15px
+  &--large
+    .v-btn__content .v-icon
+      font-size: 21px
+
+/** Button w/ directional Icon */
+.v-btn
+  .v-icon
+    &--right
+      margin-left: 8px
+
+    &--left
+      margin-right: 8px
+
+/** Custom Buttons */
+.v-btn.default--text
+  &.v-btn--outline
+    border-color: #e1dfe2
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05)
+    background: #fff !important
+
+    &.v-btn--active,
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus
+      border-color: #842478
+
+    &:hover
+      box-shadow: 0 2px 7px 0 rgba(114, 26, 124, 0.2)
+
+    &:focus:after
+      border-color: rgba(132, 36, 120, 0.4)
+      top: -5px
+      bottom: -5px
+      left: -5px
+      right: -5px
+
+    &.v-btn--active,
+    &:active,
+    &:active:focus
+      box-shadow: 0 2px 7px 0 rgba(114, 26, 124, 0.2)
+      background: #f7f7f7 !important
