@@ -1,0 +1,17 @@
+@import '../styles';
+
+.v-dialog {
+  &:not(&--fullscreen) {
+    @include display-breakpoint('xs-only') {
+      margin: 16px;
+    }
+  }
+}
+
+.v-dialog {
+  .v-card {
+    &__title {
+      font-size: 28px;
+    }
+  }
+}

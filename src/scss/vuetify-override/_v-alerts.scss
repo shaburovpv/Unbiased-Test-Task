@@ -1,0 +1,14 @@
+@import '../styles';
+
+.v-alert {
+  .v-alert__icon.v-icon,
+  &__dismissible .v-icon {
+    align-self: stretch;
+  }
+}
+.v-alert.v-alert {
+  border-color: map-deep-get($material-light, dividers) !important;
+  &--outline {
+    border: $alert-outline-border-width $alert-outline-border-style currentColor !important;
+  }
+}

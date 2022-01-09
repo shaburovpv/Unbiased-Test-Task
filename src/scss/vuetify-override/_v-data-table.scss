@@ -1,0 +1,43 @@
+@import '../styles';
+
+.v-datatable {
+  .expand-content {
+    padding: 8px;
+
+    @include display-breakpoint('md-and-up') {
+      .expand-content__inner {
+        background: #f7f7f7;
+        padding: 8px;
+        border: 1px solid #e8e8e8;
+      }
+
+      .v-table__overflow {
+        box-shadow: 0 1px 6px 0 rgba(#000, .12);
+        background: #fff;
+      }
+    }
+  }
+}
+
+.v-datatable__hover-row {
+  cursor: pointer;
+
+  .theme--light.v-list {
+    background: transparent;
+  }
+
+  .default--text.v-btn--outline {
+    background: #fff !important;
+  }
+}
+
+.v-datatable__progress {
+  th {
+    position: relative;
+
+    .v-progress-linear {
+      position: absolute;
+      top: -2px;
+    }
+  }
+}

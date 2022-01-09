@@ -1,0 +1,46 @@
+@import '../styles';
+
+.application {
+  .start-page-bg {
+    $image: '../assets/images/auth_bg.png';
+
+    &:not(.no-bg) > .flex:first-child {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 903px;
+
+        @include display-breakpoint('md-and-up') {
+          background: url($image) no-repeat;
+          background-size: contain;
+          height: 450px;
+          left: -20%;
+          top: calc(100% + 40px);
+        }
+
+        @include display-breakpoint('lg-only') {
+          height: 480px;
+          left: -25%;
+        }
+
+        @include display-breakpoint('xl-only') {
+          background-size: 903px 602px;
+          height: 602px;
+          top: calc(100% + 70px);
+        }
+      }
+    }
+
+    &--forgot-password:not(.no-bg) {
+      & > .flex:first-child {
+        $image: '../assets/images/forgotten_password.png';
+        &:before {
+          @include display-breakpoint('md-and-up') {
+            background: url($image) no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
