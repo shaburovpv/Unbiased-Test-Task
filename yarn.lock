@@ -6765,10 +6765,10 @@ libnpmpublish@^4.0.0:
     semver "^7.1.3"
     ssri "^8.0.1"
 
-libphonenumber-js@^1.9.7:
-  version "1.9.7"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.7.tgz#51c0a2b600f8d40ff7a65947fe2c1ff7f85268c1"
-  integrity sha512-mDY7fCe6dXd1ZUvYr3Q0ZaoqZ1DVXDSjcqa3AMGyudEd0Tyf8PoHkQ+9NucIBy9C/wFITPwL3Ef9SA148q20Cw==
+libphonenumber-js@^1.9.48:
+  version "1.9.48"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.48.tgz#b667161600cf2cfd7af0448e857344616fdb6fb4"
+  integrity sha512-2aiDGkr5Ty7LZRhKhnMeV9tfRbzd2zahgF12I0v11AFwEelSdiu5t8/Npf3UejKcuoO4anqTdjnIW3dEtj1xYQ==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"
