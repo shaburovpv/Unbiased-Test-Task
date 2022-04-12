@@ -1,6 +1,6 @@
 {
   "name": "unbiased-test-task",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "https://shaburovpv.github.io/Unbiased-Test-Task/",
   "scripts": {
@@ -28,7 +28,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^8.6.0",
     "prettier": "^1.19.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
