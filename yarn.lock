@@ -6016,10 +6016,10 @@ ignore@^5.1.4:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==
 
-imask@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/imask/-/imask-6.0.5.tgz#313250391bd957204cb4262426b54260929051ca"
-  integrity sha512-V9RVdbQsMxXLHK97FYR3wuHeyAc26q/0WeuRONRoqP4IFTKb472+akrFW/VPSBFYdB1PTI6impx1YgI/EDpWcQ==
+imask@^6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/imask/-/imask-6.4.2.tgz#f1c67e6961640bf5b09d7b4a34dcf4f9a3df7e22"
+  integrity sha512-xvEgbTdk6y2dW2UAysq0NRPmO6PuaXM5NHIt4TXEJEwXUHj26M0p/fXqyrSJdNXFaGVOtqYjPRnNdrjQQhDuuA==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -10804,6 +10804,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vue-demi@^0.12.1:
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.5.tgz#8eeed566a7d86eb090209a11723f887d28aeb2d1"
+  integrity sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==
+
 vue-eslint-parser@^7.0.0:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.3.0.tgz#894085839d99d81296fa081d19643733f23d7559"
@@ -10821,12 +10826,13 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-imask@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/vue-imask/-/vue-imask-6.0.5.tgz#4f55734db8d1218ea9aa24074693d14eab067051"
-  integrity sha512-w+HLlS33szUqmzyd/arclVkMnu4wJcNA7l5nW3qvG/qJ5EHi3uBq/2dktGsyzIjabk02BDnMP42PUmEUppadOw==
+vue-imask@^6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/vue-imask/-/vue-imask-6.4.2.tgz#1cffc9cfaab5673ad0ab68c1bd44cfa5e17f2043"
+  integrity sha512-WJgwZa+cENuOwZmI3FY6aiuoXs2/QSbtXjtRHCC9/bX7CTgeVBaBabh2tBX38QFEvQeUfmDnzKL6++SgQdYjQA==
   dependencies:
-    imask "^6.0.5"
+    imask "^6.4.2"
+    vue-demi "^0.12.1"
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.1.2"
