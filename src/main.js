@@ -4,7 +4,9 @@ import './styles/main.scss'
 
 import ApiPlugin from './plugins/api'
 
-console.log('cherry');
+console.log('blueberry')
+
+console.log('on log')
 
 Vue.use(ApiPlugin)
 
