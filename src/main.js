@@ -4,7 +4,7 @@ import './styles/main.scss'
 
 import ApiPlugin from './plugins/api'
 
-console.log('blueberry')
+console.log('cherry 2')
 
 console.log('on log')
 
